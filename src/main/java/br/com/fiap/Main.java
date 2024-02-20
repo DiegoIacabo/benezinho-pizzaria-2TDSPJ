@@ -1,5 +1,6 @@
 package br.com.fiap;
 
+import br.com.fiap.domain.entity.Opcional;
 import br.com.fiap.domain.entity.Pizzaria;
 import br.com.fiap.domain.entity.Produto;
 import br.com.fiap.domain.entity.Sabor;
@@ -14,8 +15,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory( "maria-db" );
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory( "fiap" );
         EntityManager manager = factory.createEntityManager();
+
+        salvar(manager);
+
+        Opcional borda = new Opcional(null, "Borda de Catupiry", 19.99);
+
+        Opcional cocaCola = Opcional.builder().id(null).nome("Coca-Cola").preco(19.99).build();
+
+        manager.getTransaction().begin();
+        manager.persist(borda);
+        manager.persist(cocaCola);
+        manager.getTransaction().commit();
+
 
         Pizzaria pizzaria = manager.find( Pizzaria.class, 1 );
 
