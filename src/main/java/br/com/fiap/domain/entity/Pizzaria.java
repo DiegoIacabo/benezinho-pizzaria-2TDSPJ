@@ -11,19 +11,29 @@ import java.util.Set;
 
 @Entity
 @Table(name = "TB_PIZZARIA")
+<<<<<<< HEAD
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+=======
+>>>>>>> f30eb1f4ac0921c0f07a69ecf449e469d0918915
 public class Pizzaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PIZZARIA")
     @SequenceGenerator(name = "SQ_PIZZARIA")
+<<<<<<< HEAD
     @Column(name="ID_PIZZARIA")
     private Long id;
 
     @Column(name="NM_PIZZARIA")
+=======
+    @Column(name = "ID_PIZZARIA")
+    private Long id;
+
+    @Column(name = "NM_PIZZARIA")
+>>>>>>> f30eb1f4ac0921c0f07a69ecf449e469d0918915
     private String nome;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
